@@ -1,0 +1,208 @@
+/* Basic Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Color themeing */
+:root{
+  --background-color: #fff;
+  /* Alternate background color (for blockquote, etc.) (must contrast with regular fg text color) */
+  --background-color-alternate: #fafafa;
+  --foreground-color: #000;
+  --foreground-color-dimmed: #c0c0c0;
+  --accent-color: hsl(213.8, 100%, 56.1%);
+  --accent-color-dimmed: hsl(223.7, 76.9%, 35.7%);
+  --complementary-color: hsl(55, 100%, 75%);
+}
+@media (prefers-color-scheme: dark) {
+  :root{
+    --background-color: #181818;
+    --background-color-alternate: #1b1b1b;
+    --foreground-color: #e8e8e8;
+    --foreground-color-dimmed: #6e6e6e;
+    --accent-color: hsl(224.4, 100%, 67.6%);
+    --accent-color-dimmed: hsl(224.1, 25.4%, 50.6%);
+    --complementary-color: hsl(54.9, 56.9%, 28.2%);
+  }
+}
+
+/* Typography Basics */
+:root {
+  --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  --font-san-serif: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+  --font-monospace: "SF Mono",Consolas,monospace;
+
+  --font-size: 1.35rem;
+  --line-height: 1.6;
+}
+@media (max-width: 500px){
+    :root{
+        font-size: 80%;
+    }
+}
+@media (min-width: 501px) and (max-width: 2000px){
+    :root{
+        font-size: 90%;
+    }
+}
+body {
+  color: var(--foreground-color);
+  background: var(--background-color);
+  font-family: var(--font-serif);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
+::selection {
+  background: var(--complementary-color);
+}
+
+body {
+  margin: 0 auto;
+  padding: 8rem 1.5rem;
+  max-width: 65ch;
+}
+
+a:link, a:hover { color: var(--accent-color); }
+a:visited { color: var(--accent-color-dimmed); }
+/* While the link is actively being clicked */
+a:active { color: var(--foreground-color); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-san-serif);
+  margin-top: 7rem;
+  margin-bottom: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6, caption, figcaption {
+    text-wrap:balance;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.17rem; }
+h4 { font-size: 1.00rem; }
+h5 { font-size: 0.83rem; }
+h6 { font-size: 0.67rem; }
+
+p {
+  margin: 1.275rem 0;
+}
+
+blockquote {
+  font-size: 1.2rem;
+  background: var(--background-color-alternate);
+  padding: 1rem;
+  margin: 1.275rem 1rem;
+}
+
+blockquote > :first-child {
+  margin-top: 0;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+hr {
+  margin: 3rem 0;
+  border: none;
+  border-bottom: 0.08rem solid var(--foreground-color-dimmed);
+}
+
+
+span.list-date {
+  color: var(--foreground-color-dimmed);
+  font-size: 1rem;
+}
+
+
+ul.list-pages-entries {
+  list-style: none;
+}
+
+main {
+  padding-top: 2rem;
+}
+
+p.date {
+  color: var(--foreground-color-dimmed);
+  font-size: 1.1rem;
+  margin: 0;
+  margin-top: 3rem;
+}
+
+
+hr.section-sep {
+  color: var(--foreground-color);
+  border: none;
+  text-align: center;
+  margin: 8rem 0;
+  margin-top: 6.5rem;
+}
+hr.section-sep::before {
+    content: "· · ·";
+    font-size: 2.5rem;
+}
+
+
+div.what-now h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 1.6rem;
+}
+div.what-now p {
+  text-align: center;
+}
+
+
+details[open] > summary {
+  display: none;
+}
+
+
+
+nav {
+  padding: 3rem 0;
+  font-family: var(--font-san-serif);
+  font-size: 1.1rem;
+  color: var(--foreground-color-dimmed);
+  transition-property: color;
+  transition-duration: 0.2s;
+}
+nav:hover {
+  color: var(--foreground-color);
+}
+
+nav a:any-link {
+  color: inherit;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+
+nav > span {
+  display: block;
+  text-align: right;
+}
+
+nav > ul {
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+
+nav > ul > li {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+nav > ul > li:last-child {
+  margin: 0;
+}
+
